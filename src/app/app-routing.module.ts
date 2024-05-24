@@ -4,6 +4,9 @@ import { ContatoComponent } from './contato/contato.component';
 
 const routes: Routes = [
   { path: 'contato', component: ContatoComponent },
+  { path: 'artigos', loadChildren: () => import('./artigos/artigos.module').then(m => m.ArtigosModule) },
+  { path: '', pathMatch: 'full', redirectTo: 'artigos' },
+  { path: '**', redirectTo: 'artigos' }
 ];
 
 @NgModule({
